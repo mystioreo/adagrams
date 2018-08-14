@@ -1,4 +1,6 @@
 
+
+
 def draw_letters
   all_letters = %w[A A A A A A A A A B B C C D D D D E E E E E E E E E E E E F F G G G H H I I I I I I I I I J K L L L L M M N N N N N N \
     O O O O O O O O P P Q R R R R R R S S S S T T T T T T U U U U V V W W X Y Y Z ]
@@ -63,5 +65,20 @@ def highest_score_from(words)
   end
 
   return {word: best_word, score: best_score}
+end
 
+def is_in_english_dict?(input)
+
+  require 'csv'
+  require_relative '../assets/dictionary-english.csv'
+
+  truth_value = false
+  CSV.foreach("../assets/dictionary-english.csv") do |row|
+    if input == row
+      truth_value = true
+      return truth_value
+    end
+  end
+
+  return truth_value
 end
