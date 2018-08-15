@@ -1,4 +1,4 @@
-
+require 'csv'
 
 
 def draw_letters
@@ -70,10 +70,9 @@ end
 def is_in_english_dict?(input)
 
   require 'csv'
-  require_relative '../assets/dictionary-english.csv'
 
   truth_value = false
-  CSV.foreach("../assets/dictionary-english.csv") do |row|
+  CSV.foreach("assets/dictionary-english.csv") do |row|
     if input == row
       truth_value = true
       return truth_value
